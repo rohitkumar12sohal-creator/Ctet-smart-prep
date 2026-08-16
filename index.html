@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CTET Smart Prep V5</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f6f7fb;color:#172033;font-family:Arial,sans-serif}.hero{background:linear-gradient(135deg,#4338ca,#7c3aed);color:#fff;padding:28px 18px 32px;border-radius:0 0 30px 30px}.wrap{max-width:900px;margin:auto;padding:16px}.hero h1{margin:5px 0;font-size:30px}.hero p{margin:0}.card{background:#fff;border:1px solid #e4e7ef;border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 5px 18px #0000000a}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.tile{padding:16px;border:1px solid #e2e5ee;border-radius:16px;background:#fff;cursor:pointer}.tag{display:inline-block;background:#ede9fe;color:#5b21b6;padding:5px 9px;border-radius:99px;font-size:12px;font-weight:700;margin:3px}.btn{width:100%;padding:13px;border:0;border-radius:13px;background:#4f46e5;color:white;font-size:16px;font-weight:700;margin-top:8px}.secondary{background:#eef0ff;color:#4338ca}.premium{border:2px solid #8b5cf6}.price{font-size:38px;font-weight:800;color:#4338ca}.hidden{display:none}.muted{color:#667085}.q{background:#f8fafc;border-radius:15px;padding:15px;margin:10px 0}.answer{background:#ecfdf3;border-left:5px solid #10b981;padding:12px;border-radius:10px}.warn{background:#fff8e7;border-left:5px solid #f59e0b;padding:13px;border-radius:12px}.correct{outline:2px solid #10b981}.wrong{outline:2px solid #ef4444}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">📚 CTET • Bilingual Learning<h1>CTET Smart Prep V5</h1><p>Concept → PYQ → Reason → Practice → Test → Premium</p></div></header>
+<main class="wrap">
+<div class="card"><button class="btn secondary" onclick="home()">🏠 Home</button><button class="btn premium" onclick="showPremium()">⭐ Premium ₹99/month</button></div>
+
+<section id="home">
+<div class="card"><h2>🎯 Subjects / विषय</h2><div class="grid">
+<div class="tile" onclick="subject('CDP')">🧠 <b>CDP</b><p class="muted">Child Development & Pedagogy</p></div>
+<div class="tile" onclick="subject('SST')">🌍 <b>SST</b><p class="muted">Social Studies / Social Science</p></div>
+<div class="tile" onclick="subject('Maths')">➗ <b>Maths</b><p class="muted">Mathematics + Pedagogy</p></div>
+<div class="tile" onclick="subject('EVS')">🌱 <b>EVS</b><p class="muted">Environmental Studies</p></div>
+<div class="tile" onclick="subject('Hindi')">हि <b>Hindi</b><p class="muted">Language + Pedagogy</p></div>
+<div class="tile" onclick="subject('English')">🔤 <b>English</b><p class="muted">Language + Pedagogy</p></div>
+</div></div>
+<div class="card"><h2>🧩 Learning System</h2><p>हर topic: <b>आसान bilingual concept → NCERT connection → creative trick → verified PYQ → answer + reason → practice MCQ → topic test.</b></p></div>
+</section>
+
+<section id="subject" class="hidden"><button class="btn secondary" onclick="home()">← Back</button><div class="card"><h2 id="st"></h2><p id="si" class="muted"></p></div><div class="card"><h3>📚 Topic-wise</h3><div id="topics" class="grid"></div></div></section>
+
+<section id="topic" class="hidden"><button class="btn secondary" onclick="backSubject()">← Topics</button><div id="tc"></div></section>
+
+<section id="premium" class="hidden">
+<div class="card premium"><span class="tag">PREMIUM</span><h2>⭐ CTET Smart Prep Premium</h2><div class="price">₹99 <small>/ month</small></div><p>Complete exam-oriented preparation.</p><button class="btn" onclick="unlockDemo()">🔓 Unlock Premium</button></div>
+<div class="card"><h3>🔐 Premium Features</h3><div class="grid">
+<div class="tile">📖 <b>Complete Notes</b><p>Hindi + English explanations, examples and tricks.</p></div>
+<div class="tile">🎯 <b>Verified PYQs</b><p>Official-paper based PYQs with answer and reason.</p></div>
+<div class="tile">📝 <b>Large MCQ Bank</b><p>Topic-wise practice from basic to CTET level.</p></div>
+<div class="tile">🏆 <b>Mock Tests</b><p>Topic, subject and full mock modes.</p></div>
+<div class="tile">📊 <b>Progress</b><p>Score and weak-topic review.</p></div>
+<div class="tile">✍️ <b>Handwritten Notes</b><p>Notebook-style bilingual study material.</p></div>
+</div></div>
+<div class="card warn"><b>Payment status:</b> अभी ₹99 केवल demo pricing है। Real payment लेने से पहले secure payment gateway + server-side verification + user access control जोड़ना जरूरी है।</div>
+</section>
+
+<section id="locked" class="hidden"><div class="card"><h2>🔒 Premium Content</h2><p>यह content Premium members के लिए है।</p><button class="btn" onclick="showPremium()">⭐ View Premium</button></div></section>
+
+<script>
+const D={
+CDP:{intro:"Child Development & Pedagogy: concepts, classroom situations and pedagogy.",topics:[
+["Piaget","Cognitive development stages"],["Vygotsky","ZPD and scaffolding"],["Kohlberg","Moral development"],["Learning","Learning theories and motivation"],["Inclusive Education","Diversity and support"],["Assessment","Formative, diagnostic and assessment for learning"]]},
+SST:{intro:"NCERT-linked Social Studies/Social Science + pedagogy.",topics:[["History","Themes and evidence"],["Geography","Maps, resources and environment"],["Civics","Democracy, government and diversity"],["Economics","Resources, work and markets"],["SST Pedagogy","Inquiry, projects and assessment"]]},
+Maths:{intro:"Mathematics concepts + reasoning + pedagogy.",topics:[["Number System","Operations, fractions and decimals"],["Geometry","Shapes and spatial reasoning"],["Measurement","Length, area and perimeter"],["Data Handling","Tables and graphs"],["Maths Pedagogy","Errors, manipulatives and problem solving"]]},
+EVS:{intro:"EVS concepts rooted in children's experiences and environment.",topics:[["Family & Friends","Relationships, work and travel"],["Food","Sources, diversity and nutrition"],["Water","Sources and conservation"],["Shelter","Materials and adaptation"],["EVS Pedagogy","Observation, discussion and field work"]]},
+Hindi:{intro:"Hindi language learning + pedagogy.",topics:[["Comprehension","Main idea and inference"],["Language Acquisition","How children acquire language"],["Reading","Strategies and remedial support"],["Writing","Process and feedback"],["Assessment","Language assessment"]]},
+English:{intro:"English language learning + pedagogy.",topics:[["Reading Comprehension","Main idea and inference"],["Language Acquisition","How children learn language"],["Reading Pedagogy","Strategies and classroom practice"],["Writing","Process writing and feedback"],["Assessment","Diagnostic and formative assessment"]]}
+};
+let S='',TI=0;
+function hide(){['home','subject','topic','premium','locked'].forEach(x=>document.getElementById(x).classList.add('hidden'))}
+function home(){hide();document.getElementById('home').classList.remove('hidden')}
+function subject(s){S=s;hide();document.getElementById('subject').classList.remove('hidden');document.getElementById('st').textContent=s+' — Topic-wise Preparation';document.getElementById('si').textContent=D[s].intro;document.getElementById('topics').innerHTML=D[s].topics.map((x,i)=>`<div class="tile" onclick="topic(${i})"><span class="tag">${i+1}</span><b>${x[0]}</b><p class="muted">${x[1]}</p></div>`).join('')}
+function backSubject(){subject(S)}
+function topic(i){TI=i;hide();document.getElementById('topic').classList.remove('hidden');let t=D[S].topics[i];document.getElementById('tc').innerHTML=`
+<div class="card"><span class="tag">📖 CONCEPT</span><span class="tag">🇮🇳 हिंदी + English</span><h2>${t[0]}</h2><p><b>Simple Explanation / आसान समझ:</b> ${t[1]} को पहले basic concept, फिर classroom example और CTET application से समझें।</p><div class="warn"><b>💡 Exam Tip:</b> definition के साथ classroom situation और learner-centred implication भी पहचानें।</div></div>
+<div class="card"><h3>🧠 Creative Notes</h3><p><b>Concept Map:</b> Meaning → Key Terms → Example → Common Confusion → CTET Angle</p><div class="answer"><b>Memory Trick:</b> पहले “क्या?”, फिर “क्यों?”, फिर “कक्षा में कैसे?”</div></div>
+<div class="card"><h3>🎯 PYQ Corner</h3><p>Verified PYQ text को official paper/answer key से source-check करके जोड़ा जाएगा। इस demo में fabricated PYQ को actual PYQ नहीं बताया गया है।</p></div>
+<div class="card"><h3>📝 Practice MCQ</h3><div class="q"><b>Q1. CTET pedagogy question में सबसे useful approach क्या है?</b><p><label><input type="radio" name="q" value="a"> A. केवल definition याद करना</label></p><p><label><input type="radio" name="q" value="b"> B. Classroom evidence और learner context देखना</label></p><p><label><input type="radio" name="q" value="c"> C. सबसे कठिन option चुनना</label></p><button class="btn" onclick="check()">Check Answer</button><div id="feedback"></div></div></div>
+<div class="card"><h3>🏆 Topic Test</h3><button class="btn" onclick="alert('10/20/30-question test mode अगली content-bank update में जोड़ा जाएगा।')">Start Topic Test</button></div>`}
+function check(){let a=document.querySelector('input[name=q]:checked'),f=document.getElementById('feedback');if(!a){f.innerHTML='<p class="warn">पहले answer चुनें।</p>';return}f.innerHTML=a.value==='b'?'<div class="answer"><b>✅ Correct!</b><br>Reason: CTET pedagogy में classroom context और learner evidence महत्वपूर्ण हैं।</div>':'<div class="warn"><b>❌ Try again.</b><br>Concept को फिर पढ़ें और classroom context पर ध्यान दें।</div>'}
+function showPremium(){hide();document.getElementById('premium').classList.remove('hidden')}
+function unlockDemo(){hide();document.getElementById('locked').classList.remove('hidden')}
+</script>
+</main></body></html>
