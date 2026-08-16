@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CTET Smart Prep V3</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f6fb;color:#182033;font-family:Arial,sans-serif}
+header{background:linear-gradient(135deg,#4338ca,#7c3aed);color:#fff;padding:25px 16px;border-radius:0 0 28px 28px}.wrap{max-width:850px;margin:auto;padding:16px}
+h1{margin:0;font-size:29px}h2{margin:8px 0}.sub{opacity:.92}.card{background:#fff;border-radius:19px;padding:18px;margin:14px 0;box-shadow:0 5px 22px #0000000c}
+button,select{width:100%;padding:13px;border-radius:12px;border:1px solid #d8ddea;font-size:16px}button{background:#4f46e5;color:#fff;border:0;font-weight:bold;margin-top:10px}.secondary{background:#eef0ff;color:#4338ca}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.tile{padding:16px;border:1px solid #e2e5ee;border-radius:14px;background:#fafbff;cursor:pointer}
+.badge{display:inline-block;background:#ede9fe;color:#5b21b6;padding:5px 9px;border-radius:99px;font-size:12px;font-weight:bold}
+.box{padding:14px;border-radius:14px;margin:10px 0;background:#f8f9ff}.concept{border-left:5px solid #4f46e5}.pyq{border-left:5px solid #f59e0b}.trick{border-left:5px solid #10b981}.q{font-size:18px;font-weight:bold;line-height:1.5}.opt{display:block;padding:12px;background:#f7f8fc;border-radius:11px;margin:8px 0}.hidden{display:none}.score{text-align:center;font-size:38px;font-weight:800;color:#4338ca}.muted{color:#667085}
+.tabs{display:flex;gap:8px;overflow:auto;margin-bottom:10px}.tabs button{width:auto;white-space:nowrap;margin:0}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>📚 CTET Smart Prep V3</h1><div class="sub">Bilingual Learning • Concept • PYQ • Practice • Mock Test</div></div></header>
+<div class="wrap">
+<div class="tabs"><button onclick="home()">🏠 Home</button><button onclick="premium()">⭐ Premium</button></div>
+
+<section id="home">
+<div class="card"><span class="badge">LEARN SMART</span><h2>Subject / विषय चुनें</h2>
+<div class="grid">
+<div class="tile" onclick="openTopic('CDP')">🧠 <b>CDP</b><br>Child Development & Pedagogy</div>
+<div class="tile" onclick="openTopic('SST')">🌍 <b>SST</b><br>Social Studies</div>
+<div class="tile" onclick="openTopic('Maths')">➗ <b>Maths</b><br>Mathematics</div>
+<div class="tile" onclick="openTopic('EVS')">🌱 <b>EVS</b><br>Environmental Studies</div>
+<div class="tile" onclick="openTopic('Hindi')">हिं <b>Hindi</b><br>Language I</div>
+<div class="tile" onclick="openTopic('English')">🔤 <b>English</b><br>Language II</div>
+</div></div>
+<div class="card"><h2>🔄 हमारा Learning Cycle</h2><p><b>Concept समझो → PYQ समझो → Practice करो → Challenge दो → Score देखो</b></p></div>
+</section>
+
+<section id="topic" class="hidden"></section>
+<section id="test" class="hidden"></section>
+<section id="result" class="hidden"></section>
+<section id="premium" class="hidden"></section>
+</div>
+
+<script>
+const topics={
+CDP:{
+title:"Piaget – Cognitive Development / पियाजे – संज्ञानात्मक विकास",
+concept:`<div class="box concept"><h3>🧠 Concept / अवधारणा</h3>
+<p><b>Jean Piaget</b> के अनुसार बच्चे का cognitive development / संज्ञानात्मक विकास अलग-अलग stages में होता है। बच्चा अपने अनुभवों के आधार पर knowledge बनाता है।</p>
+<p><b>चार stages / चार अवस्थाएँ:</b><br>
+1️⃣ Sensorimotor (0–2 years) — इन्द्रिय एवं motor actions<br>
+2️⃣ Preoperational (2–7 years) — symbolic thinking, लेकिन logical thinking सीमित<br>
+3️⃣ Concrete Operational (7–11 years) — concrete objects पर logical thinking<br>
+4️⃣ Formal Operational (11+ years) — abstract और hypothetical thinking</p></div>
+<div class="box trick"><h3>💡 Memory Trick / याद रखने की Trick</h3><p><b>S → P → C → F</b><br>Sensorimotor → Preoperational → Concrete → Formal</p></div>`,
+pyq:`<div class="box pyq"><h3>🎯 PYQ-style / PYQ Concept</h3><p><b>Question:</b> एक बच्चा 8 वर्ष का है और वस्तुओं को देखकर conservation तथा classification कर सकता है। यह किस stage की विशेषता है?</p>
+<p><b>Answer / उत्तर:</b> ✅ Concrete Operational Stage</p>
+<p><b>Reason / कारण:</b> 7–11 years में बच्चा concrete situations में logical operations करना सीखता है। इसलिए 8 वर्ष का बच्चा इस stage में आता है।</p>
+<p><b>Other options क्यों नहीं?</b> Sensorimotor 0–2, Preoperational 2–7 और Formal Operational लगभग 11+ years से जुड़ा है।</p></div>`,
+qs:[
+["Piaget के अनुसार 7–11 years की stage कौन-सी है? / Which stage is 7–11 years?",["Sensorimotor","Preoperational","Concrete Operational","Formal Operational"],2,"7–11 years = Concrete Operational Stage."],
+["Concrete operational child की प्रमुख विशेषता क्या है? / Main feature?",["Only reflexes","Logical thinking with concrete objects","Only abstract hypotheses","No classification"],1,"इस stage में concrete situations पर logical thinking विकसित होती है।"],
+["Formal operational stage में क्या विकसित होता है? / What develops?",["Only reflex action","Symbolic play only","Abstract and hypothetical thinking","Object permanence only"],2,"Formal stage में abstract और hypothetical reasoning प्रमुख होती है।"],
+["Preoperational stage की लगभग आयु क्या है? / Approximate age?",["0–2","2–7","7–11","11+"],1,"Preoperational = लगभग 2–7 years."]
+]},
+SST:{title:"Map & Scale / मानचित्र और मापनी",concept:`<div class="box concept"><h3>🗺️ Concept / अवधारणा</h3><p><b>Map / मानचित्र</b> पृथ्वी की सतह या उसके किसी भाग का छोटा, प्रतीकात्मक representation है।</p><p><b>Scale / मापनी</b> map distance और actual ground distance के बीच संबंध बताती है।</p></div><div class="box trick"><h3>💡 Trick</h3><p><b>Map = कहाँ? Scale = कितना दूर?</b></p></div>`,pyq:`<div class="box pyq"><h3>🎯 PYQ Concept</h3><p><b>Question:</b> मानचित्र की scale मुख्यतः क्या दर्शाती है?</p><p><b>Answer:</b> ✅ Map distance और ground distance का संबंध।</p><p><b>Reason:</b> Scale हमें बताती है कि map पर दिखाई गई दूरी वास्तविक धरातल पर कितनी दूरी को दर्शाती है।</p></div>`,qs:[["Scale क्या बताती है? / What does scale show?",["Distance relationship","Population","Weather","Language"],0,"Scale map और actual distance का relationship बताती है।"]]},
+Maths:{title:"Fractions / भिन्न",concept:`<div class="box concept"><h3>➗ Concept / अवधारणा</h3><p>Fraction / भिन्न किसी whole / पूर्ण वस्तु के बराबर भागों में से लिए गए भाग को दर्शाता है।</p><p><b>1/2 + 1/2 = 1</b>, क्योंकि दो आधे मिलकर एक पूरा बनाते हैं।</p></div><div class="box trick"><h3>💡 Trick</h3><p>Denominator = कुल बराबर भाग / total equal parts<br>Numerator = लिए गए भाग / selected parts</p></div>`,pyq:`<div class="box pyq"><h3>🎯 PYQ Concept</h3><p><b>Question:</b> 1/2 + 1/2 = ?</p><p><b>Answer:</b> ✅ 1</p><p><b>Reason:</b> समान denominator होने पर numerators जोड़ते हैं: 1+1=2, इसलिए 2/2 = 1.</p></div>`,qs:[["1/2 + 1/2 = ? / What is 1/2 + 1/2?",["1/2","1","2","0"],1,"2/2 = 1."]]},
+EVS:{title:"Water Conservation / जल संरक्षण",concept:`<div class="box concept"><h3>🌱 Concept / अवधारणा</h3><p>Water conservation / जल संरक्षण का अर्थ पानी का समझदारी से उपयोग और संरक्षण करना है। Rainwater harvesting / वर्षा जल संचयन इसका महत्वपूर्ण तरीका है।</p></div><div class="box trick"><h3>💡 Exam Trick</h3><p>जहाँ प्रश्न में <b>जल बचाने</b> का उद्देश्य हो, वहाँ sustainable use और rainwater harvesting जैसे विकल्पों पर ध्यान दें।</p></div>`,pyq:`<div class="box pyq"><h3>🎯 PYQ Concept</h3><p><b>Question:</b> पानी बचाने का प्रभावी तरीका?</p><p><b>Answer:</b> ✅ Rainwater harvesting.</p><p><b>Reason:</b> वर्षा के पानी को collect करके future use/groundwater recharge में मदद मिलती है।</p></div>`,qs:[["Water conservation का अच्छा तरीका? / Good method?",["Rainwater harvesting","Tap खुला छोड़ना","Water wastage","Leaks ignore करना"],0,"Rainwater harvesting जल संरक्षण में सहायक है।"]]},
+Hindi:{title:"Language Learning / भाषा अधिगम",concept:`<div class="box concept"><h3>🗣️ Concept / अवधारणा</h3><p>भाषा केवल रटने से नहीं, बल्कि meaningful communication / सार्थक संप्रेषण, सुनने, बोलने, पढ़ने और लिखने के निरंतर प्रयोग से विकसित होती है।</p></div><div class="box trick"><h3>💡 Trick</h3><p><b>सुनो → बोलो → पढ़ो → लिखो → feedback लो</b></p></div>`,pyq:`<div class="box pyq"><h3>🎯 PYQ Concept</h3><p><b>Question:</b> भाषा सीखने में सबसे प्रभावी क्या है?</p><p><b>Answer:</b> ✅ सार्थक भाषा-प्रयोग.</p><p><b>Reason:</b> Meaningful context learner को भाषा का वास्तविक उपयोग समझने देता है।</p></div>`,qs:[["भाषा सीखने में अधिक प्रभावी क्या है?",["सिर्फ रटना","सार्थक प्रयोग","सिर्फ परीक्षा","सिर्फ copying"],1,"Meaningful language use learning को मजबूत करता है।"]]},
+English:{title:"Vocabulary – Synonyms / शब्दावली – समानार्थी",concept:`<div class="box concept"><h3>🔤 Concept / अवधारणा</h3><p><b>Synonym</b> is a word having the same or nearly the same meaning as another word. उदाहरण: Happy → Joyful.</p></div><div class="box trick"><h3>💡 Trick</h3><p>Synonym = <b>Same/S imilar meaning</b> / समान या मिलता-जुलता अर्थ.</p></div>`,pyq:`<div class="box pyq"><h3>🎯 PYQ Concept</h3><p><b>Question:</b> Choose the synonym of “Happy”.</p><p><b>Answer:</b> ✅ Joyful.</p><p><b>Reason:</b> Joyful means feeling or showing happiness.</p></div>`,qs:[["Choose the synonym of Happy.",["Sad","Joyful","Angry","Weak"],1,"Joyful means happy."]]}
+};
+
+let current="CDP",questions=[],pos=0,score=0;
+function hide(){["home","topic","test","result","premium"].forEach(id=>document.getElementById(id).classList.add("hidden"))}
+function home(){hide();document.getElementById("home").classList.remove("hidden")}
+function premium(){hide();document.getElementById("premium").innerHTML=`<div class="card"><span class="badge">PREMIUM</span><h2>⭐ CTET Smart Prep Premium</h2><h1>₹99 / month</h1><ul><li>Full topic-wise concepts</li><li>CTET PYQs with detailed explanations</li><li>5000+ practice MCQs</li><li>Handwritten-style bilingual notes/PDF</li><li>Full mock tests & progress</li></ul><button onclick="alert('Demo only: real payment gateway can be connected here.')">Unlock Premium ₹99</button><p class="muted">अभी यह demo है; वास्तविक payment नहीं लिया जाता।</p></div>`;document.getElementById("premium").classList.remove("hidden")}
+function openTopic(s){current=s;let d=topics[s];hide();document.getElementById("topic").innerHTML=`<div class="card"><span class="badge">${s}</span><h2>${d.title}</h2>${d.concept}${d.pyq}<button onclick="startTest()">📝 Practice Questions / अभ्यास प्रश्न</button><button class="secondary" onclick="home()">Back / वापस</button></div>`;document.getElementById("topic").classList.remove("hidden")}
+function startTest(){questions=topics[current].qs;pos=0;score=0;hide();document.getElementById("test").classList.remove("hidden");renderQ()}
+function renderQ(){let x=questions[pos];let h=`<div class="box"><b>Question ${pos+1}/${questions.length}</b></div><div class="q">${x[0]}</div>`;x[1].forEach((o,j)=>h+=`<label class="opt"><input type="radio" name="a" value="${j}"> ${o}</label>`);document.getElementById("test").innerHTML=`<div class="card">${h}<button onclick="next()">Next / अगला</button></div>`}
+function next(){let a=document.querySelector('input[name=a]:checked');if(!a)return alert("Answer चुनें / Select an answer");let x=questions[pos];let correct=+a.value===x[2];if(correct)score++;let feedback=correct?"✅ Correct / सही!":"❌ Incorrect / गलत";let box=`<div class="box ${correct?'trick':'pyq'}"><b>${feedback}</b><p><b>Answer / उत्तर:</b> ${x[1][x[2]]}</p><p><b>Reason / कारण:</b> ${x[3]}</p></div>`;document.getElementById("test").innerHTML=`<div class="card">${box}<button onclick="${pos+1<questions.length?'renderQ()':'finish()'}">${pos+1<questions.length?'Next / अगला':'See Result / परिणाम देखें'}</button></div>`;pos++}
+function finish(){hide();let p=Math.round(score/questions.length*100);document.getElementById("result").innerHTML=`<div class="card"><div class="score">${score}/${questions.length}<br><small>${p}%</small></div><h2 style="text-align:center">${p>=80?'🏆 CTET Ready!':p>=50?'👍 Good Practice!':'💪 Concept फिर से पढ़ें'}</h2><button onclick="openTopic(current)">🔄 Topic Revise</button><button class="secondary" onclick="premium()">⭐ Premium Content</button></div>`;document.getElementById("result").classList.remove("hidden")}
+</script>
+</body>
+</html>
